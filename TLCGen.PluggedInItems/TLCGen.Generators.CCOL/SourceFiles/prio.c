@@ -893,9 +893,10 @@ void PrioCcolElementen(int prio, int tgb, int trt, int hprio, int cvc, int tblk)
         if (hprio >= 0 && hprio < HE_MAX)
         {
             IH[hprio] = (bool)iPrioriteit[prio];
-            RTFB |= ((SH[hprio]) && (    iPrioriteitsOpties[prio] & poNoodDienst)) ? PRIO_RTFB_BIT : FALSE; /* Eenmalig herstarten bij start en einde hulpdiensten van TFB */
-            RTFB |= ((EH[hprio]) && (iInstPrioriteitsOpties[prio] & poNoodDienst)) ? PRIO_RTFB_BIT : FALSE; /* Eenmalig herstarten bij start en einde hulpdiensten van TFB */
-
+            RTFB |= ((SH[hprio])   && (    iPrioriteitsOpties[prio] & poNoodDienst)) ? PRIO_RTFB_BIT : FALSE; /* Eenmalig herstarten bij start en einde hulpdiensten van TFB */
+            RTFB |= ((EH[hprio])   && (iInstPrioriteitsOpties[prio] & poNoodDienst)) ? PRIO_RTFB_BIT : FALSE; /* Eenmalig herstarten bij start en einde hulpdiensten van TFB */
+            RTFB |= ((SH[hprio+1]) && (    iPrioriteitsOpties[prio] & poNoodDienst)) ? PRIO_RTFB_BIT : FALSE; /* Eenmalig herstarten van TFB bij  inmelding hulpdiensten */
+            RTFB |= ((SH[hprio+2]) && (iInstPrioriteitsOpties[prio] & poNoodDienst)) ? PRIO_RTFB_BIT : FALSE; /* Eenmalig herstarten van TFB bij uitmelding hulpdiensten */
         }
         if (cvc >= 0 && cvc < CT_MAX)
         {
