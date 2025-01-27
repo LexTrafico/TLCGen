@@ -3153,7 +3153,6 @@ namespace TLCGen.Specificator
                         koppi.KoppelingNaam.ToString(),
                         koppi.GekoppeldeSignaalGroep.ToString(),
                         koppi.Verschuiving.ToString(),
-                        koppi.Meetperiode.ToString(),
                         koppi.MinimaalAantalVoertuigen.ToString(),
                         koppi.ToepassenRetourWachtgroen.GetDescription(),
                         koppi.TijdRetourWachtgroen.ToString(),
